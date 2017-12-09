@@ -32,12 +32,25 @@ module top(
 	reg [0:0] pause_e;
 	reg [0:0] stopp_e;
 	wire reset_line;
+	wire zeroPoint1Clk = 1'b0;
 	
 	entprellt starellt(.clk(clk), .taste(start), .entprellt(start_e));
 	entprellt resrellt(.clk(clk), .taste(reset), .entprellt(reset_e));
 	entprellt paurellt(.clk(clk), .taste(pause), .entprellt(pause_e));
 	entprellt storellt(.clk(clk), .taste(stop), .entprellt(stopp_e));
 	
-	counter #(width(23)) (.clk(clk), .reset(reset_line), .counter(
+	parameter max_count = 5000000; 
+	reg [22:0] count = 23'd0;
+	always @(posedge clk)
+	begin
+		if (reset_line) count <= 0;
+		else begin
+			count <= count + 23'd1;
+			if (count == max_count) begin
+				zeroPoint1Clk <= ~zeroPoint1Clk;
+				count <= 0;
+			end
+		end
+	end
 
 endmodule
