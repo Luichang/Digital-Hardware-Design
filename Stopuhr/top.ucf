@@ -1,0 +1,16 @@
+NET "clk" LOC = "B8";
+NET "start" LOC = "H13";
+NET "stop" LOC = "E18";
+NET "pause" LOC = "D18";
+NET "reset" LOC = "B18";
+NET "seg<0>" LOC = "L18";
+NET "seg<1>" LOC = "F18";
+NET "seg<2>" LOC = "D17";
+NET "seg<3>" LOC = "D16";
+NET "seg<4>" LOC = "G14";
+NET "seg<5>" LOC = "J17";
+NET "seg<6>" LOC = "H14";
+NET "pos<0>" LOC = "F15";
+NET "pos<1>" LOC = "C18";
+NET "pos<2>" LOC = "H17";
+NET "pos<3>" LOC = "F17";

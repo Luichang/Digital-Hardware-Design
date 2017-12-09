@@ -1,0 +1,672 @@
+Release 14.7 - xst P.20131013 (nt64)
+Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
+--> Parameter TMPDIR set to xst/projnav.tmp
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> Parameter xsthdpdir set to xst
+
+
+Total REAL time to Xst completion: 0.00 secs
+Total CPU time to Xst completion: 0.05 secs
+ 
+--> Reading design: top.prj
+
+TABLE OF CONTENTS
+  1) Synthesis Options Summary
+  2) HDL Compilation
+  3) Design Hierarchy Analysis
+  4) HDL Analysis
+  5) HDL Synthesis
+     5.1) HDL Synthesis Report
+  6) Advanced HDL Synthesis
+     6.1) Advanced HDL Synthesis Report
+  7) Low Level Synthesis
+  8) Partition Report
+  9) Final Report
+	9.1) Device utilization summary
+	9.2) Partition Resource Summary
+	9.3) TIMING REPORT
+
+
+=========================================================================
+*                      Synthesis Options Summary                        *
+=========================================================================
+---- Source Parameters
+Input File Name                    : "top.prj"
+Input Format                       : mixed
+Ignore Synthesis Constraint File   : NO
+
+---- Target Parameters
+Output File Name                   : "top"
+Output Format                      : NGC
+Target Device                      : xc3s500e-4-fg320
+
+---- Source Options
+Top Module Name                    : top
+Automatic FSM Extraction           : YES
+FSM Encoding Algorithm             : Auto
+Safe Implementation                : No
+FSM Style                          : LUT
+RAM Extraction                     : Yes
+RAM Style                          : Auto
+ROM Extraction                     : Yes
+Mux Style                          : Auto
+Decoder Extraction                 : YES
+Priority Encoder Extraction        : Yes
+Shift Register Extraction          : YES
+Logical Shifter Extraction         : YES
+XOR Collapsing                     : YES
+ROM Style                          : Auto
+Mux Extraction                     : Yes
+Resource Sharing                   : YES
+Asynchronous To Synchronous        : NO
+Multiplier Style                   : Auto
+Automatic Register Balancing       : No
+
+---- Target Options
+Add IO Buffers                     : YES
+Global Maximum Fanout              : 100000
+Add Generic Clock Buffer(BUFG)     : 24
+Register Duplication               : YES
+Slice Packing                      : YES
+Optimize Instantiated Primitives   : NO
+Use Clock Enable                   : Yes
+Use Synchronous Set                : Yes
+Use Synchronous Reset              : Yes
+Pack IO Registers into IOBs        : Auto
+Equivalent register Removal        : YES
+
+---- General Options
+Optimization Goal                  : Speed
+Optimization Effort                : 1
+Keep Hierarchy                     : No
+Netlist Hierarchy                  : As_Optimized
+RTL Output                         : Yes
+Global Optimization                : AllClockNets
+Read Cores                         : YES
+Write Timing Constraints           : NO
+Cross Clock Analysis               : NO
+Hierarchy Separator                : /
+Bus Delimiter                      : <>
+Case Specifier                     : Maintain
+Slice Utilization Ratio            : 100
+BRAM Utilization Ratio             : 100
+Verilog 2001                       : YES
+Auto BRAM Packing                  : NO
+Slice Utilization Ratio Delta      : 5
+
+=========================================================================
+
+
+=========================================================================
+*                          HDL Compilation                              *
+=========================================================================
+Compiling verilog file "../counter.v" in library work
+Compiling verilog file "../../bcd.v" in library work
+Module <counter> compiled
+Compiling verilog file "../increaseDigit.v" in library work
+Module <bcd> compiled
+Compiling verilog file "../../siebensegment.v" in library work
+Module <increaseDigit> compiled
+Compiling verilog file "../../entprellt.v" in library work
+Module <siebensegment> compiled
+Compiling verilog file "../top.v" in library work
+Module <entprellt> compiled
+Module <top> compiled
+No errors in compilation
+Analysis of file <"top.prj"> succeeded.
+ 
+
+=========================================================================
+*                     Design Hierarchy Analysis                         *
+=========================================================================
+Analyzing hierarchy for module <top> in library <work> with parameters.
+	max_count = "00000000001001100010010110100000"
+
+Analyzing hierarchy for module <entprellt> in library <work> with parameters.
+	max_count = "00000000000001111010000100100000"
+
+Analyzing hierarchy for module <increaseDigit> in library <work> with parameters.
+	numSize = "00000000000000000000000000000100"
+
+Analyzing hierarchy for module <siebensegment> in library <work> with parameters.
+	w = "00000000000000000000000000001111"
+
+Analyzing hierarchy for module <counter> in library <work> with parameters.
+	width = "00000000000000000000000000001111"
+
+Analyzing hierarchy for module <counter> in library <work> with parameters.
+	width = "00000000000000000000000000000010"
+
+Analyzing hierarchy for module <bcd> in library <work>.
+
+
+=========================================================================
+*                            HDL Analysis                               *
+=========================================================================
+Analyzing top module <top>.
+	max_count = 32'sb00000000001001100010010110100000
+Module <top> is correct for synthesis.
+ 
+Analyzing module <entprellt> in library <work>.
+	max_count = 32'sb00000000000001111010000100100000
+Module <entprellt> is correct for synthesis.
+ 
+Analyzing module <increaseDigit> in library <work>.
+	numSize = 32'sb00000000000000000000000000000100
+Module <increaseDigit> is correct for synthesis.
+ 
+Analyzing module <siebensegment> in library <work>.
+	w = 32'sb00000000000000000000000000001111
+Module <siebensegment> is correct for synthesis.
+ 
+Analyzing module <counter.1> in library <work>.
+	width = 32'sb00000000000000000000000000001111
+Module <counter.1> is correct for synthesis.
+ 
+Analyzing module <counter.2> in library <work>.
+	width = 32'sb00000000000000000000000000000010
+Module <counter.2> is correct for synthesis.
+ 
+Analyzing module <bcd> in library <work>.
+Module <bcd> is correct for synthesis.
+ 
+
+=========================================================================
+*                           HDL Synthesis                               *
+=========================================================================
+
+Performing bidirectional port resolution...
+
+Synthesizing Unit <entprellt>.
+    Related source file is "../../entprellt.v".
+    Found 1-bit register for signal <entprellt>.
+    Found 19-bit up counter for signal <count>.
+    Found 1-bit xor2 for signal <count$xor0000> created at line 30.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+Unit <entprellt> synthesized.
+
+
+Synthesizing Unit <increaseDigit>.
+    Related source file is "../increaseDigit.v".
+    Found 4-bit up counter for signal <counter>.
+    Found 1-bit register for signal <out>.
+    Found 4-bit comparator equal for signal <counter$cmp_eq0000> created at line 33.
+    Found 4-bit comparator not equal for signal <out$cmp_ne0000> created at line 33.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   2 Comparator(s).
+Unit <increaseDigit> synthesized.
+
+
+Synthesizing Unit <counter_1>.
+    Related source file is "../counter.v".
+    Found 15-bit up counter for signal <counter>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter_1> synthesized.
+
+
+Synthesizing Unit <counter_2>.
+    Related source file is "../counter.v".
+    Found 2-bit up counter for signal <counter>.
+    Summary:
+	inferred   1 Counter(s).
+Unit <counter_2> synthesized.
+
+
+Synthesizing Unit <bcd>.
+    Related source file is "../../bcd.v".
+    Found 16x7-bit ROM for signal <number$rom0000>.
+    Summary:
+	inferred   1 ROM(s).
+Unit <bcd> synthesized.
+
+
+Synthesizing Unit <siebensegment>.
+    Related source file is "../../siebensegment.v".
+WARNING:Xst:646 - Signal <count_clockdivide<13:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+    Found 4x4-bit ROM for signal <anode>.
+    Found 4-bit 4-to-1 multiplexer for signal <data_to_sevSeg>.
+    Summary:
+	inferred   1 ROM(s).
+	inferred   4 Multiplexer(s).
+Unit <siebensegment> synthesized.
+
+
+Synthesizing Unit <top>.
+    Related source file is "../top.v".
+WARNING:Xst:646 - Signal <stopp_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <start_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <reset_line> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+WARNING:Xst:646 - Signal <reset_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <pause_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:646 - Signal <enable<4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
+WARNING:Xst:653 - Signal <enable<0>> is used but never assigned. This sourceless signal will be automatically connected to value 0.
+    Found 23-bit up counter for signal <count>.
+    Found 1-bit register for signal <zeroPoint1Clk<0>>.
+    Found 1-bit adder for signal <zeroPoint1Clk_0$sub0000> created at line 58.
+    Summary:
+	inferred   1 Counter(s).
+	inferred   1 D-type flip-flop(s).
+	inferred   1 Adder/Subtractor(s).
+Unit <top> synthesized.
+
+
+=========================================================================
+HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x7-bit ROM                                          : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 1
+ 1-bit adder                                           : 1
+# Counters                                             : 11
+ 15-bit up counter                                     : 1
+ 19-bit up counter                                     : 4
+ 2-bit up counter                                      : 1
+ 23-bit up counter                                     : 1
+ 4-bit up counter                                      : 4
+# Registers                                            : 9
+ 1-bit register                                        : 9
+# Comparators                                          : 8
+ 4-bit comparator equal                                : 4
+ 4-bit comparator not equal                            : 4
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                       Advanced HDL Synthesis                          *
+=========================================================================
+
+WARNING:Xst:1290 - Hierarchical block <starellt> is unconnected in block <top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <resrellt> is unconnected in block <top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <paurellt> is unconnected in block <top>.
+   It will be removed from the design.
+WARNING:Xst:1290 - Hierarchical block <storellt> is unconnected in block <top>.
+   It will be removed from the design.
+
+=========================================================================
+Advanced HDL Synthesis Report
+
+Macro Statistics
+# ROMs                                                 : 2
+ 16x7-bit ROM                                          : 1
+ 4x4-bit ROM                                           : 1
+# Adders/Subtractors                                   : 1
+ 1-bit adder                                           : 1
+# Counters                                             : 11
+ 15-bit up counter                                     : 1
+ 19-bit up counter                                     : 4
+ 2-bit up counter                                      : 1
+ 23-bit up counter                                     : 1
+ 4-bit up counter                                      : 4
+# Registers                                            : 9
+ Flip-Flops                                            : 9
+# Comparators                                          : 8
+ 4-bit comparator equal                                : 4
+ 4-bit comparator not equal                            : 4
+# Multiplexers                                         : 1
+ 4-bit 4-to-1 multiplexer                              : 1
+# Xors                                                 : 4
+ 1-bit xor2                                            : 4
+
+=========================================================================
+
+=========================================================================
+*                         Low Level Synthesis                           *
+=========================================================================
+WARNING:Xst:2677 - Node <in3/out> of sequential type is unconnected in block <top>.
+WARNING:Xst:1710 - FF/Latch <in0/counter_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <in0/counter_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <in0/counter_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+WARNING:Xst:1710 - FF/Latch <in0/counter_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
+
+Optimizing unit <top> ...
+
+Optimizing unit <entprellt> ...
+WARNING:Xst:2677 - Node <storellt/count_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <storellt/entprellt> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <paurellt/entprellt> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <resrellt/entprellt> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_18> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_17> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_16> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_15> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_14> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_13> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_12> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_11> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_10> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_9> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_8> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_7> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_6> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_5> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_4> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_3> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_2> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_1> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/count_0> of sequential type is unconnected in block <top>.
+WARNING:Xst:2677 - Node <starellt/entprellt> of sequential type is unconnected in block <top>.
+
+Mapping all equations...
+Building and optimizing final netlist ...
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 0.
+
+Final Macro Processing ...
+
+=========================================================================
+Final Register Report
+
+Macro Statistics
+# Registers                                            : 56
+ Flip-Flops                                            : 56
+
+=========================================================================
+
+=========================================================================
+*                           Partition Report                            *
+=========================================================================
+
+Partition Implementation Status
+-------------------------------
+
+  No Partitions were found in this design.
+
+-------------------------------
+
+=========================================================================
+*                            Final Report                               *
+=========================================================================
+Final Results
+RTL Top Level Output File Name     : top.ngr
+Top Level Output File Name         : top
+Output Format                      : NGC
+Optimization Goal                  : Speed
+Keep Hierarchy                     : No
+
+Design Statistics
+# IOs                              : 16
+
+Cell Usage :
+# BELS                             : 171
+#      GND                         : 1
+#      INV                         : 6
+#      LUT1                        : 36
+#      LUT2                        : 12
+#      LUT2_L                      : 1
+#      LUT3                        : 12
+#      LUT4                        : 16
+#      LUT4_D                      : 2
+#      MUXCY                       : 42
+#      MUXF5                       : 4
+#      VCC                         : 1
+#      XORCY                       : 38
+# FlipFlops/Latches                : 56
+#      FD                          : 16
+#      FDE                         : 1
+#      FDR                         : 27
+#      FDRE                        : 12
+# Clock Buffers                    : 1
+#      BUFGP                       : 1
+# IO Buffers                       : 11
+#      OBUF                        : 11
+=========================================================================
+
+Device utilization summary:
+---------------------------
+
+Selected Device : 3s500efg320-4 
+
+ Number of Slices:                       43  out of   4656     0%  
+ Number of Slice Flip Flops:             56  out of   9312     0%  
+ Number of 4 input LUTs:                 85  out of   9312     0%  
+ Number of IOs:                          16
+ Number of bonded IOBs:                  12  out of    232     5%  
+ Number of GCLKs:                         1  out of     24     4%  
+
+---------------------------
+Partition Resource Summary:
+---------------------------
+
+  No Partitions were found in this design.
+
+---------------------------
+
+
+=========================================================================
+TIMING REPORT
+
+NOTE: THESE TIMING NUMBERS ARE ONLY A SYNTHESIS ESTIMATE.
+      FOR ACCURATE TIMING INFORMATION PLEASE REFER TO THE TRACE REPORT
+      GENERATED AFTER PLACE-and-ROUTE.
+
+Clock Information:
+------------------
+-------------------------------------+--------------------------------------+-------+
+Clock Signal                         | Clock buffer(FF name)                | Load  |
+-------------------------------------+--------------------------------------+-------+
+clk                                  | BUFGP                                | 39    |
+zeroPoint1Clk_0                      | NONE(in2/out)                        | 15    |
+sevSeg/counter_clockdivide/counter_14| NONE(sevSeg/counter_digits/counter_1)| 2     |
+-------------------------------------+--------------------------------------+-------+
+INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
+
+Asynchronous Control Signals Information:
+----------------------------------------
+No asynchronous control signals found in this design
+
+Timing Summary:
+---------------
+Speed Grade: -4
+
+   Minimum period: 5.111ns (Maximum Frequency: 195.656MHz)
+   Minimum input arrival time before clock: No path found
+   Maximum output required time after clock: 8.070ns
+   Maximum combinational path delay: No path found
+
+Timing Detail:
+--------------
+All values displayed in nanoseconds (ns)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'clk'
+  Clock period: 5.111ns (frequency: 195.656MHz)
+  Total number of paths / destination ports: 949 / 63
+-------------------------------------------------------------------------
+Delay:               5.111ns (Levels of Logic = 7)
+  Source:            count_8 (FF)
+  Destination:       count_0 (FF)
+  Source Clock:      clk rising
+  Destination Clock: clk rising
+
+  Data Path: count_8 to count_0
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q              2   0.591   0.622  count_8 (count_8)
+     LUT3:I0->O            1   0.704   0.000  count_or0000_wg_lut<0> (count_or0000_wg_lut<0>)
+     MUXCY:S->O            1   0.464   0.000  count_or0000_wg_cy<0> (count_or0000_wg_cy<0>)
+     MUXCY:CI->O           1   0.059   0.000  count_or0000_wg_cy<1> (count_or0000_wg_cy<1>)
+     MUXCY:CI->O           1   0.059   0.000  count_or0000_wg_cy<2> (count_or0000_wg_cy<2>)
+     MUXCY:CI->O           1   0.059   0.000  count_or0000_wg_cy<3> (count_or0000_wg_cy<3>)
+     MUXCY:CI->O           1   0.059   0.000  count_or0000_wg_cy<4> (count_or0000_wg_cy<4>)
+     MUXCY:CI->O          24   0.331   1.252  count_or0000_wg_cy<5> (count_or0000)
+     FDR:R                     0.911          count_0
+    ----------------------------------------
+    Total                      5.111ns (3.237ns logic, 1.874ns route)
+                                       (63.3% logic, 36.7% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'zeroPoint1Clk_0'
+  Clock period: 4.535ns (frequency: 220.507MHz)
+  Total number of paths / destination ports: 112 / 38
+-------------------------------------------------------------------------
+Delay:               4.535ns (Levels of Logic = 2)
+  Source:            in2/counter_3 (FF)
+  Destination:       in2/out (FF)
+  Source Clock:      zeroPoint1Clk_0 rising
+  Destination Clock: zeroPoint1Clk_0 rising
+
+  Data Path: in2/counter_3 to in2/out
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             3   0.591   0.706  in2/counter_3 (in2/counter_3)
+     LUT4_D:I0->O          1   0.704   0.499  in2/out_cmp_ne00001 (in2/out_cmp_ne0000)
+     LUT2:I1->O            1   0.704   0.420  in2/out_or00001 (in2/out_not0001_inv)
+     FDR:R                     0.911          in2/out
+    ----------------------------------------
+    Total                      4.535ns (2.910ns logic, 1.625ns route)
+                                       (64.2% logic, 35.8% route)
+
+=========================================================================
+Timing constraint: Default period analysis for Clock 'sevSeg/counter_clockdivide/counter_14'
+  Clock period: 2.682ns (frequency: 372.856MHz)
+  Total number of paths / destination ports: 3 / 2
+-------------------------------------------------------------------------
+Delay:               2.682ns (Levels of Logic = 1)
+  Source:            sevSeg/counter_digits/counter_0 (FF)
+  Destination:       sevSeg/counter_digits/counter_1 (FF)
+  Source Clock:      sevSeg/counter_clockdivide/counter_14 rising
+  Destination Clock: sevSeg/counter_clockdivide/counter_14 rising
+
+  Data Path: sevSeg/counter_digits/counter_0 to sevSeg/counter_digits/counter_1
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             14   0.591   1.079  sevSeg/counter_digits/counter_0 (sevSeg/counter_digits/counter_0)
+     LUT2:I1->O            1   0.704   0.000  sevSeg/counter_digits/Mcount_counter_xor<1>11 (Result<1>6)
+     FD:D                      0.308          sevSeg/counter_digits/counter_1
+    ----------------------------------------
+    Total                      2.682ns (1.603ns logic, 1.079ns route)
+                                       (59.8% logic, 40.2% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'sevSeg/counter_clockdivide/counter_14'
+  Total number of paths / destination ports: 92 / 11
+-------------------------------------------------------------------------
+Offset:              8.070ns (Levels of Logic = 4)
+  Source:            sevSeg/counter_digits/counter_0 (FF)
+  Destination:       seg<6> (PAD)
+  Source Clock:      sevSeg/counter_clockdivide/counter_14 rising
+
+  Data Path: sevSeg/counter_digits/counter_0 to seg<6>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDR:C->Q             14   0.591   1.175  sevSeg/counter_digits/counter_0 (sevSeg/counter_digits/counter_0)
+     LUT3:I0->O            1   0.704   0.000  sevSeg/Mmux_data_to_sevSeg_3 (sevSeg/Mmux_data_to_sevSeg_3)
+     MUXF5:I1->O           7   0.321   0.883  sevSeg/Mmux_data_to_sevSeg_2_f5 (sevSeg/data_to_sevSeg<0>)
+     LUT4:I0->O            1   0.704   0.420  sevSeg/bcd0/Mrom_number_rom000031 (seg_3_OBUF)
+     OBUF:I->O                 3.272          seg_3_OBUF (seg<3>)
+    ----------------------------------------
+    Total                      8.070ns (5.592ns logic, 2.478ns route)
+                                       (69.3% logic, 30.7% route)
+
+=========================================================================
+Timing constraint: Default OFFSET OUT AFTER for Clock 'zeroPoint1Clk_0'
+  Total number of paths / destination ports: 84 / 7
+-------------------------------------------------------------------------
+Offset:              7.643ns (Levels of Logic = 4)
+  Source:            in2/counter_0 (FF)
+  Destination:       seg<3> (PAD)
+  Source Clock:      zeroPoint1Clk_0 rising
+
+  Data Path: in2/counter_0 to seg<3>
+                                Gate     Net
+    Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
+    ----------------------------------------  ------------
+     FDRE:C->Q             6   0.591   0.748  in2/counter_0 (in2/counter_0)
+     LUT3:I1->O            1   0.704   0.000  sevSeg/Mmux_data_to_sevSeg_3 (sevSeg/Mmux_data_to_sevSeg_3)
+     MUXF5:I1->O           7   0.321   0.883  sevSeg/Mmux_data_to_sevSeg_2_f5 (sevSeg/data_to_sevSeg<0>)
+     LUT4:I0->O            1   0.704   0.420  sevSeg/bcd0/Mrom_number_rom000031 (seg_3_OBUF)
+     OBUF:I->O                 3.272          seg_3_OBUF (seg<3>)
+    ----------------------------------------
+    Total                      7.643ns (5.592ns logic, 2.051ns route)
+                                       (73.2% logic, 26.8% route)
+
+=========================================================================
+
+
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.76 secs
+ 
+--> 
+
+Total memory usage is 257780 kilobytes
+
+Number of errors   :    0 (   0 filtered)
+Number of warnings :   97 (   0 filtered)
+Number of infos    :    1 (   0 filtered)
+

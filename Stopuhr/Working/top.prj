@@ -1,0 +1,6 @@
+verilog work "../counter.v"
+verilog work "../../bcd.v"
+verilog work "../increaseDigit.v"
+verilog work "../../siebensegment.v"
+verilog work "../../entprellt.v"
+verilog work "../top.v"

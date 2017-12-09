@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\Luichang\Downloads\Digital-Hardware-Design-master\Digital-Hardware-Design-master\Stopuhr\Working\top.ncd
+OUTFILE=C:\Users\Luichang\Downloads\Digital-Hardware-Design-master\Digital-Hardware-Design-master\Stopuhr\Working\top.bit
+FAMILY=Spartan3E
+PART=xc3s500e-4fg320
+WORKINGDIR=C:\Users\Luichang\Downloads\Digital-Hardware-Design-master\Digital-Hardware-Design-master\Stopuhr\Working
+LICENSE=WebPack
+USER_INFO=211427686_0_0_711
