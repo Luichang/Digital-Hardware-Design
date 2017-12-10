@@ -1,7 +1,7 @@
 Release 14.7 par P.20131013 (nt64)
 Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
-RAMIRA::  Sat Dec 09 16:06:00 2017
+RAMIRA::  Sat Dec 09 16:12:52 2017
 
 par -w -intstyle ise -ol high -t 1 top_map.ncd top.ncd top.pcf 
 
@@ -42,7 +42,7 @@ Design Summary Report:
 
 
    Number of BUFGMUXs                        1 out of 24      4%
-   Number of Slices                         50 out of 4656    1%
+   Number of Slices                         53 out of 4656    1%
       Number of SLICEMs                      0 out of 2328    0%
 
 
@@ -65,37 +65,37 @@ Total REAL time at the beginning of Placer: 0 secs
 Total CPU  time at the beginning of Placer: 0 secs 
 
 Phase 1.1  Initial Placement Analysis
-Phase 1.1  Initial Placement Analysis (Checksum:5cd3c214) REAL time: 0 secs 
+Phase 1.1  Initial Placement Analysis (Checksum:5cd3c2e0) REAL time: 0 secs 
 
 Phase 2.7  Design Feasibility Check
-Phase 2.7  Design Feasibility Check (Checksum:5cd3c214) REAL time: 0 secs 
+Phase 2.7  Design Feasibility Check (Checksum:5cd3c2e0) REAL time: 0 secs 
 
 Phase 3.31  Local Placement Optimization
-Phase 3.31  Local Placement Optimization (Checksum:5cd3c214) REAL time: 0 secs 
+Phase 3.31  Local Placement Optimization (Checksum:5cd3c2e0) REAL time: 0 secs 
 
 Phase 4.2  Initial Clock and IO Placement
 
-Phase 4.2  Initial Clock and IO Placement (Checksum:847547d4) REAL time: 1 secs 
+Phase 4.2  Initial Clock and IO Placement (Checksum:847548a0) REAL time: 0 secs 
 
 Phase 5.30  Global Clock Region Assignment
-Phase 5.30  Global Clock Region Assignment (Checksum:847547d4) REAL time: 1 secs 
+Phase 5.30  Global Clock Region Assignment (Checksum:847548a0) REAL time: 0 secs 
 
 Phase 6.36  Local Placement Optimization
-Phase 6.36  Local Placement Optimization (Checksum:847547d4) REAL time: 1 secs 
+Phase 6.36  Local Placement Optimization (Checksum:847548a0) REAL time: 0 secs 
 
 Phase 7.8  Global Placement
-.....
+.......
 ..
-Phase 7.8  Global Placement (Checksum:3b63132d) REAL time: 2 secs 
+Phase 7.8  Global Placement (Checksum:1adf0242) REAL time: 2 secs 
 
 Phase 8.5  Local Placement Optimization
-Phase 8.5  Local Placement Optimization (Checksum:3b63132d) REAL time: 2 secs 
+Phase 8.5  Local Placement Optimization (Checksum:1adf0242) REAL time: 2 secs 
 
 Phase 9.18  Placement Optimization
-Phase 9.18  Placement Optimization (Checksum:96acf6ea) REAL time: 2 secs 
+Phase 9.18  Placement Optimization (Checksum:7b52a3ae) REAL time: 2 secs 
 
 Phase 10.5  Local Placement Optimization
-Phase 10.5  Local Placement Optimization (Checksum:96acf6ea) REAL time: 2 secs 
+Phase 10.5  Local Placement Optimization (Checksum:7b52a3ae) REAL time: 2 secs 
 
 Total REAL time to Placer completion: 2 secs 
 Total CPU  time to Placer completion: 2 secs 
@@ -106,13 +106,13 @@ Writing design to file top.ncd
 Starting Router
 
 
-Phase  1  : 277 unrouted;      REAL time: 5 secs 
+Phase  1  : 303 unrouted;      REAL time: 4 secs 
 
-Phase  2  : 237 unrouted;      REAL time: 5 secs 
+Phase  2  : 262 unrouted;      REAL time: 5 secs 
 
-Phase  3  : 19 unrouted;      REAL time: 5 secs 
+Phase  3  : 47 unrouted;      REAL time: 5 secs 
 
-Phase  4  : 34 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  4  : 64 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
 Phase  5  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
@@ -120,7 +120,9 @@ Updating file: top.ncd with current fully routed design.
 
 Phase  6  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
 
-Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 5 secs 
+Phase  7  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
+
+Updating file: top.ncd with current fully routed design.
 
 Phase  8  : 0 unrouted; (Par is working to improve performance)     REAL time: 6 secs 
 
@@ -155,12 +157,12 @@ Generating Clock Report
 +---------------------+--------------+------+------+------------+-------------+
 |        Clock Net    |   Resource   |Locked|Fanout|Net Skew(ns)|Max Delay(ns)|
 +---------------------+--------------+------+------+------------+-------------+
-|           clk_BUFGP | BUFGMUX_X2Y11| No   |   21 |  0.017     |  0.167      |
+|           clk_BUFGP | BUFGMUX_X2Y11| No   |   21 |  0.037     |  0.172      |
 +---------------------+--------------+------+------+------------+-------------+
 |sevSeg/counter_clock |              |      |      |            |             |
-|  divide/counter<14> |         Local|      |    3 |  0.007     |  1.652      |
+|  divide/counter<14> |         Local|      |    3 |  0.000     |  1.639      |
 +---------------------+--------------+------+------+------------+-------------+
-|    zeroPoint1Clk<0> |         Local|      |   10 |  0.022     |  2.479      |
+|    zeroPoint1Clk<0> |         Local|      |   12 |  0.024     |  2.186      |
 +---------------------+--------------+------+------+------------+-------------+
 
 * Net Skew is the difference between the minimum and maximum routing
@@ -180,14 +182,14 @@ Asterisk (*) preceding a constraint indicates it was not met.
   Constraint                                |    Check    | Worst Case |  Best Case | Timing |   Timing   
                                             |             |    Slack   | Achievable | Errors |    Score   
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.731ns|     N/A|           0
-  _BUFGP                                    | HOLD        |     1.104ns|            |       0|           0
+  Autotimespec constraint for clock net clk | SETUP       |         N/A|     4.576ns|     N/A|           0
+  _BUFGP                                    | HOLD        |     1.227ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net sev | SETUP       |         N/A|     2.363ns|     N/A|           0
-  Seg/counter_clockdivide/counter<14>       | HOLD        |     1.388ns|            |       0|           0
+  Autotimespec constraint for clock net sev | SETUP       |         N/A|     2.333ns|     N/A|           0
+  Seg/counter_clockdivide/counter<14>       | HOLD        |     1.617ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
-  Autotimespec constraint for clock net zer | SETUP       |         N/A|     4.444ns|     N/A|           0
-  oPoint1Clk<0>                             | HOLD        |     1.148ns|            |       0|           0
+  Autotimespec constraint for clock net zer | SETUP       |         N/A|     5.323ns|     N/A|           0
+  oPoint1Clk<0>                             | HOLD        |     0.988ns|            |       0|           0
 ----------------------------------------------------------------------------------------------------------
 
 
@@ -208,7 +210,7 @@ WARNING:Par:283 - There are 4 loadless signals in this design. This design will 
 Total REAL time to PAR completion: 6 secs 
 Total CPU time to PAR completion: 6 secs 
 
-Peak Memory Usage:  282 MB
+Peak Memory Usage:  283 MB
 
 Placement: Completed - No errors found.
 Routing: Completed - No errors found.

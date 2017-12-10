@@ -1,11 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <report-views version="2.0" >
  <header>
-  <DateModified>2017-12-09T11:34:59</DateModified>
+  <DateModified>2017-12-10T14:00:47</DateModified>
   <ModuleName>top</ModuleName>
   <SummaryTimeStamp>Unknown</SummaryTimeStamp>
   <SavedFilePath>C:/Users/Luichang/Downloads/Digital-Hardware-Design-master/Digital-Hardware-Design-master/Stopuhr/iseconfig/top.xreport</SavedFilePath>
-  <ImplementationReportsDirectory>C:/Users/Luichang/Downloads/Digital-Hardware-Design-master/Digital-Hardware-Design-master/Stopuhr/Working</ImplementationReportsDirectory>
+  <ImplementationReportsDirectory>C:/Users/Luichang/Downloads/Digital-Hardware-Design-master/Digital-Hardware-Design-master/Stopuhr/Working\</ImplementationReportsDirectory>
   <DateInitialized>2017-12-09T11:34:59</DateInitialized>
   <EnableMessageFiltering>false</EnableMessageFiltering>
  </header>

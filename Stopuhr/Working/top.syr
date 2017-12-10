@@ -248,7 +248,6 @@ WARNING:Xst:653 - Signal <reset_line> is used but never assigned. This sourceles
 WARNING:Xst:646 - Signal <reset_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <pause_e> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
 WARNING:Xst:646 - Signal <enable<4>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
-WARNING:Xst:653 - Signal <enable<0>> is used but never assigned. This sourceless signal will be automatically connected to value 0.
     Found 23-bit up counter for signal <count>.
     Found 1-bit register for signal <zeroPoint1Clk<0>>.
     Found 1-bit adder for signal <zeroPoint1Clk_0$sub0000> created at line 58.
@@ -330,10 +329,6 @@ Macro Statistics
 *                         Low Level Synthesis                           *
 =========================================================================
 WARNING:Xst:2677 - Node <in3/out> of sequential type is unconnected in block <top>.
-WARNING:Xst:1710 - FF/Latch <in0/counter_0> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <in0/counter_1> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <in0/counter_2> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
-WARNING:Xst:1710 - FF/Latch <in0/counter_3> (without init value) has a constant value of 0 in block <top>. This FF/Latch will be trimmed during the optimization process.
 
 Optimizing unit <top> ...
 
@@ -421,7 +416,7 @@ WARNING:Xst:2677 - Node <starellt/entprellt> of sequential type is unconnected i
 
 Mapping all equations...
 Building and optimizing final netlist ...
-Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 0.
+Found area constraint ratio of 100 (+ 5) on block top, actual ratio is 1.
 
 Final Macro Processing ...
 
@@ -429,8 +424,8 @@ Final Macro Processing ...
 Final Register Report
 
 Macro Statistics
-# Registers                                            : 56
- Flip-Flops                                            : 56
+# Registers                                            : 60
+ Flip-Flops                                            : 60
 
 =========================================================================
 
@@ -459,24 +454,24 @@ Design Statistics
 # IOs                              : 16
 
 Cell Usage :
-# BELS                             : 171
+# BELS                             : 177
 #      GND                         : 1
-#      INV                         : 6
+#      INV                         : 7
 #      LUT1                        : 36
-#      LUT2                        : 12
+#      LUT2                        : 13
 #      LUT2_L                      : 1
-#      LUT3                        : 12
-#      LUT4                        : 16
+#      LUT3                        : 13
+#      LUT4                        : 19
 #      LUT4_D                      : 2
 #      MUXCY                       : 42
 #      MUXF5                       : 4
 #      VCC                         : 1
 #      XORCY                       : 38
-# FlipFlops/Latches                : 56
+# FlipFlops/Latches                : 60
 #      FD                          : 16
 #      FDE                         : 1
 #      FDR                         : 27
-#      FDRE                        : 12
+#      FDRE                        : 16
 # Clock Buffers                    : 1
 #      BUFGP                       : 1
 # IO Buffers                       : 11
@@ -488,9 +483,9 @@ Device utilization summary:
 
 Selected Device : 3s500efg320-4 
 
- Number of Slices:                       43  out of   4656     0%  
- Number of Slice Flip Flops:             56  out of   9312     0%  
- Number of 4 input LUTs:                 85  out of   9312     0%  
+ Number of Slices:                       46  out of   4656     0%  
+ Number of Slice Flip Flops:             60  out of   9312     0%  
+ Number of 4 input LUTs:                 91  out of   9312     0%  
  Number of IOs:                          16
  Number of bonded IOBs:                  12  out of    232     5%  
  Number of GCLKs:                         1  out of     24     4%  
@@ -517,7 +512,7 @@ Clock Information:
 Clock Signal                         | Clock buffer(FF name)                | Load  |
 -------------------------------------+--------------------------------------+-------+
 clk                                  | BUFGP                                | 39    |
-zeroPoint1Clk_0                      | NONE(in2/out)                        | 15    |
+zeroPoint1Clk_0                      | NONE(in2/out)                        | 19    |
 sevSeg/counter_clockdivide/counter_14| NONE(sevSeg/counter_digits/counter_1)| 2     |
 -------------------------------------+--------------------------------------+-------+
 INFO:Xst:2169 - HDL ADVISOR - Some clock signals were not automatically buffered by XST with BUFG/BUFR resources. Please use the buffer_type constraint in order to insert these buffers to the clock signals to help prevent skew problems.
@@ -570,7 +565,7 @@ Delay:               5.111ns (Levels of Logic = 7)
 =========================================================================
 Timing constraint: Default period analysis for Clock 'zeroPoint1Clk_0'
   Clock period: 4.535ns (frequency: 220.507MHz)
-  Total number of paths / destination ports: 112 / 38
+  Total number of paths / destination ports: 142 / 47
 -------------------------------------------------------------------------
 Delay:               4.535ns (Levels of Logic = 2)
   Source:            in2/counter_3 (FF)
@@ -636,37 +631,37 @@ Offset:              8.070ns (Levels of Logic = 4)
 
 =========================================================================
 Timing constraint: Default OFFSET OUT AFTER for Clock 'zeroPoint1Clk_0'
-  Total number of paths / destination ports: 84 / 7
+  Total number of paths / destination ports: 112 / 7
 -------------------------------------------------------------------------
-Offset:              7.643ns (Levels of Logic = 4)
-  Source:            in2/counter_0 (FF)
+Offset:              7.682ns (Levels of Logic = 4)
+  Source:            in0/counter_0 (FF)
   Destination:       seg<3> (PAD)
   Source Clock:      zeroPoint1Clk_0 rising
 
-  Data Path: in2/counter_0 to seg<3>
+  Data Path: in0/counter_0 to seg<3>
                                 Gate     Net
     Cell:in->out      fanout   Delay   Delay  Logical Name (Net Name)
     ----------------------------------------  ------------
-     FDRE:C->Q             6   0.591   0.748  in2/counter_0 (in2/counter_0)
-     LUT3:I1->O            1   0.704   0.000  sevSeg/Mmux_data_to_sevSeg_3 (sevSeg/Mmux_data_to_sevSeg_3)
-     MUXF5:I1->O           7   0.321   0.883  sevSeg/Mmux_data_to_sevSeg_2_f5 (sevSeg/data_to_sevSeg<0>)
+     FDRE:C->Q             7   0.591   0.787  in0/counter_0 (in0/counter_0)
+     LUT3:I1->O            1   0.704   0.000  sevSeg/Mmux_data_to_sevSeg_4 (sevSeg/Mmux_data_to_sevSeg_4)
+     MUXF5:I0->O           7   0.321   0.883  sevSeg/Mmux_data_to_sevSeg_2_f5 (sevSeg/data_to_sevSeg<0>)
      LUT4:I0->O            1   0.704   0.420  sevSeg/bcd0/Mrom_number_rom000031 (seg_3_OBUF)
      OBUF:I->O                 3.272          seg_3_OBUF (seg<3>)
     ----------------------------------------
-    Total                      7.643ns (5.592ns logic, 2.051ns route)
-                                       (73.2% logic, 26.8% route)
+    Total                      7.682ns (5.592ns logic, 2.090ns route)
+                                       (72.8% logic, 27.2% route)
 
 =========================================================================
 
 
-Total REAL time to Xst completion: 4.00 secs
-Total CPU time to Xst completion: 3.76 secs
+Total REAL time to Xst completion: 3.00 secs
+Total CPU time to Xst completion: 3.63 secs
  
 --> 
 
-Total memory usage is 257780 kilobytes
+Total memory usage is 258036 kilobytes
 
 Number of errors   :    0 (   0 filtered)
-Number of warnings :   97 (   0 filtered)
+Number of warnings :   92 (   0 filtered)
 Number of infos    :    1 (   0 filtered)
 

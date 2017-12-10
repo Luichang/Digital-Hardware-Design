@@ -45,7 +45,7 @@ module top(
 	entprellt paurellt(.clk(clk), .taste(pause), .entprellt(pause_e));
 	entprellt storellt(.clk(clk), .taste(stop), .entprellt(stopp_e));
 	
-	
+	assign enable[0] = 1;
 	
 	parameter max_count = 2500000; // 2500000 causes the second time to be 1 second
 	reg [22:0] count = 23'd0;
