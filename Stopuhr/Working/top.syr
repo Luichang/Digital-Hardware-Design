@@ -4,13 +4,13 @@ Copyright (c) 1995-2013 Xilinx, Inc.  All rights reserved.
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Parameter xsthdpdir set to xst
 
 
 Total REAL time to Xst completion: 0.00 secs
-Total CPU time to Xst completion: 0.05 secs
+Total CPU time to Xst completion: 0.09 secs
  
 --> Reading design: top.prj
 
@@ -107,12 +107,12 @@ Slice Utilization Ratio Delta      : 5
 Compiling verilog file "../counter.v" in library work
 Compiling verilog file "../../bcd.v" in library work
 Module <counter> compiled
-Compiling verilog file "../increaseDigit.v" in library work
+Compiling verilog file "../siebensegment.v" in library work
 Module <bcd> compiled
-Compiling verilog file "../../siebensegment.v" in library work
-Module <increaseDigit> compiled
-Compiling verilog file "../../entprellt.v" in library work
+Compiling verilog file "../increaseDigit.v" in library work
 Module <siebensegment> compiled
+Compiling verilog file "../../entprellt.v" in library work
+Module <increaseDigit> compiled
 Compiling verilog file "../top.v" in library work
 Module <entprellt> compiled
 Module <top> compiled
@@ -230,7 +230,7 @@ Unit <bcd> synthesized.
 
 
 Synthesizing Unit <siebensegment>.
-    Related source file is "../../siebensegment.v".
+    Related source file is "../siebensegment.v".
 WARNING:Xst:646 - Signal <count_clockdivide<13:0>> is assigned but never used. This unconnected signal will be trimmed during the optimization process.
     Found 4x4-bit ROM for signal <anode>.
     Found 4-bit 4-to-1 multiplexer for signal <data_to_sevSeg>.
@@ -654,12 +654,12 @@ Offset:              7.682ns (Levels of Logic = 4)
 =========================================================================
 
 
-Total REAL time to Xst completion: 3.00 secs
-Total CPU time to Xst completion: 3.63 secs
+Total REAL time to Xst completion: 4.00 secs
+Total CPU time to Xst completion: 3.91 secs
  
 --> 
 
-Total memory usage is 258036 kilobytes
+Total memory usage is 257844 kilobytes
 
 Number of errors   :    0 (   0 filtered)
 Number of warnings :   92 (   0 filtered)
