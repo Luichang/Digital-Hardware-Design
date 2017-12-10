@@ -3,26 +3,6 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date:    12:44:13 12/09/2017 
-// Design Name: 
-// Module Name:    bcd 
-// Project Name: 
-// Target Devices: 
-// Tool versions: 
-// Description: 
-//
-// Dependencies: 
-//
-// Revision: 
-// Revision 0.01 - File Created
-// Additional Comments: 
-//
-//////////////////////////////////////////////////////////////////////////////////
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
 // Create Date:    13:43:01 11/29/2017 
 // Design Name: 
 // Module Name:    bcd 
@@ -131,5 +111,4 @@ module bcd(input [3:0] number, output [6:0] tosev
 							(number == 4'd14 ? 1'b0:
 							(number == 4'd15 ? 1'b0:
 							1'b1))))))))))));
-endmodule
-
+endmodule 
